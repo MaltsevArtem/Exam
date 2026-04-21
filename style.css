@@ -1,0 +1,37 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcfcfc;
+}
+
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+#map {
+    border: 2px solid #dee2e6;
+}
+
+.selected-row {
+    background-color: #e7f1ff !important;
+    border: 2px solid #0d6efd;
+}
+
+.alert-fixed {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1060;
+    min-width: 300px;
+}
+
+.combo-item img {
+    transition: transform 0.3s ease;
+}
+
+.combo-item img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.table-responsive {
+    border-radius: 8px;
+}

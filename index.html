@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Russian — Языковая школа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Learn Russian</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-warning text-dark fw-bold ms-lg-3 mt-2 mt-lg-0" href="cabinet.html">
+                        Личный кабинет 👤
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container my-4">
+        <div id="alerts-container"></div>
+
+        <section id="about" class="mb-5">
+            <h2 class="fw-bold">О нашей языковой школе</h2>
+            <p class="lead">Наша миссия — предоставить качественное образование для всех, кто интересуется русским языком. Мы предлагаем курсы для всех уровней.</p>
+        </section>
+
+        <section class="row mb-5 text-center g-4">
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h4 class="text-primary">Мировой язык</h4>
+                    <p>На русском языке говорят во всем мире.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h4 class="text-primary">Богатая культура</h4>
+                    <p>Поймите русскую литературу и искусство глубже.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 border rounded shadow-sm h-100">
+                    <h4 class="text-primary">Карьера</h4>
+                    <p>Откройте для себя новые международные перспективы.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="mb-5">
+            <h2 class="mb-4">Наши курсы</h2>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Название курса</th>
+                            <th>Уровень</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="courses-table">
+                    </tbody>
+                </table>
+            </div>
+            <nav><ul class="pagination justify-content-center" id="courses-pagination"></ul></nav>
+        </section>
+
+        <section class="card p-4 mb-5 shadow-sm">
+            <h3 class="mb-3">Поиск курсов</h3>
+            <form id="search-courses-form" class="row g-3">
+                <div class="col-md-8">
+                    <input type="text" id="course-name" class="form-control" placeholder="Поиск по названию...">
+                </div>
+                <div class="col-md-4">
+                    <select id="course-level" class="form-select">
+                        <option value="">Все уровни</option>
+                        <option value="Beginner">Начальный</option>
+                        <option value="Intermediate">Средний</option>
+                        <option value="Advanced">Продвинутый</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Поиск</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="tutors" class="mb-5">
+            <h2 class="mb-4">Доступные репетиторы</h2>
+            <div class="card p-4 mb-4 shadow-sm">
+                <form id="filter-tutors-form" class="row g-3">
+                    <div class="col-md-5">
+                        <select id="tutor-lang" class="form-select">
+                            <option value="">Предлагаемые языки</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="tutor-level" class="form-select">
+                            <option value="">Уровень языка</option>
+                            <option value="Beginner">Начальный</option>
+                            <option value="Intermediate">Средний</option>
+                            <option value="Advanced">Продвинутый</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="tutor-exp" class="form-control" placeholder="Опыт (лет)">
+                    </div>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Фото</th>
+                            <th>Имя</th>
+                            <th>Языки</th>
+                            <th>Уровень</th>
+                            <th>Опыт</th>
+                            <th>Ставка (₽/ч)</th>
+                            <th>Выбор</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tutors-table">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="text-center mb-5">
+            <button id="open-order-btn" class="btn btn-success btn-lg d-none">Оформить заявку</button>
+        </div>
+
+        <section class="mb-5">
+            <h2 class="mb-4">Найти учебные ресурсы</h2>
+            <div id="map" style="width: 100%; height: 450px;" class="rounded shadow-sm"></div>
+        </section>
+
+    </main>
+
+    <footer id="contacts" class="bg-light py-5 border-top">
+        <div class="container text-center">
+            <p class="mb-2">Свяжитесь с нами: <a href="mailto:info@learnrussian.com">info@learnrussian.com</a></p>
+            <p class="text-muted">Мы в соцсетях: VK, TELEGRAM</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Оформление заявки</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="order-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Выбранный курс</label>
+                                <input type="text" id="modal-course-name" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Преподаватель</label>
+                                <input type="text" id="modal-teacher-name" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Дата начала</label>
+                                <input type="date" id="start-date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Время начала</label>
+                                <select id="start-time" class="form-select" disabled required></select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Длительность (недель)</label>
+                                <input type="text" id="modal-duration" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Кол-во студентов (1-20)</label>
+                                <input type="number" id="students-count" class="form-control" min="1" max="20" value="1" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <h6>Дополнительные опции:</h6>
+                        <div id="options-container" class="row">
+                        </div>
+                        <div class="mt-4 p-3 bg-light rounded text-end">
+                            <h4>Итоговая стоимость: <span id="total-cost">0</span> ₽</h4>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="submit" form="order-form" class="btn btn-primary">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
