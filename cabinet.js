@@ -1,5 +1,5 @@
 const API_KEY = '3a511289-43b6-49a8-82f3-00decaa84995';
-const BASE_URL = 'http://exam-api-courses.std-900.ist.mospolytech.ru/api';
+const BASE_URL = 'https://exam-api-courses.std-900.ist.mospolytech.ru/api';
 
 let orders = [];
 let courses = [];
